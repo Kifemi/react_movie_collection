@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/MovieData.css';
 
 export class MovieContainerData extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className=''>
 				<p>{this.props.name}</p>
 				<p>{this.props.year}</p>
 				<p>{this.props.owned}</p>

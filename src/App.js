@@ -9,10 +9,14 @@ function App() {
   initDataManager(dataManager);
 
   return (
-    <div className="App">
-      <Header />
-      <MainWindow movieCollection={dataManager.movieCollection}/>
-    </div>
+    <div className='App container-fluid'>
+      <div className='row'>
+        <div className='col-12'>
+          <Header />
+        </div>
+      </div>
+        <MainWindow movieCollection={dataManager.movieCollection}/>
+    </div>  
   );
 }
 

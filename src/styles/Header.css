@@ -1,5 +1,8 @@
 .Header {
     text-align: center;
-    font-size: xx-large;
+    font-size: 40px;
     background-color: #4484eb;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 6px;
 }

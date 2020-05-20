@@ -3,3 +3,10 @@
 	text-align: center;
 	background-color: #6cb5f5;
 }
+
+.movieBox {
+	border: solid #1a44c4;
+	border-width: 5px;
+	border-radius: 25px;
+	margin: 2px;
+}

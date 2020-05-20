@@ -1,6 +1,13 @@
 .responsive {
   max-width: 100px;
   max-height: 200px;
+  min-width: 50px;
+  min-height: 100px;
   width: 100%;
   height: auto;
+}
+
+.imageBox {
+  border: solid green;
+  border-width: 5px;
 }

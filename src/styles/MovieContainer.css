@@ -1,0 +1,10 @@
+.movieHeader {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border: solid #1a44c4;
+	border-width: 3px;
+  border-radius: 25px;
+  margin: 10px;
+  background-color: #2c4fb8;
+}

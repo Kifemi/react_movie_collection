@@ -6,7 +6,7 @@ import '../styles/Image.css';
 export class MovieContainerImage extends Component {
 	render() {
 		return (
-			<div>
+			<div className=''>
 				<img src={this.props.imageUrl} alt='' className='responsive'/>
 			</div>
 		)
