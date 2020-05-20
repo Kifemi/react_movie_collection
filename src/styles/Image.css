@@ -1,0 +1,6 @@
+.responsive {
+  max-width: 100px;
+  max-height: 200px;
+  width: 100%;
+  height: auto;
+}

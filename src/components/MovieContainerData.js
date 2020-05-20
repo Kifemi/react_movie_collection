@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class MovieContainerData extends Component {
 	render() {
@@ -11,6 +12,13 @@ export class MovieContainerData extends Component {
 			</div>
 		)
 	}
+}
+
+// PropTypes
+MovieContainerData.propTypes = {
+	name: PropTypes.object.isRequired,
+	year: PropTypes.object.isRequired,
+	owned: PropTypes.bool.isRequired,
 }
 
 export default MovieContainerData

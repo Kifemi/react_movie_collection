@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/MainWindow.css';
 import MovieContainer from './MovieContainer';
+import PropTypes from 'prop-types';
 
 export class MainWindow extends Component {
 	render() {
@@ -12,6 +13,11 @@ export class MainWindow extends Component {
 			</div>
 		)
 	}
+}
+
+// PropTypes
+MainWindow.propTypes = {
+	movieCollection: PropTypes.array.isRequired
 }
 
 export default MainWindow
