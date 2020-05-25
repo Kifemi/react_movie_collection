@@ -2,12 +2,12 @@ import React from 'react';
 //import { BrowserrRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import MainWindow from './components/MainWindow';
-import DataManager, { initDataManager } from './DataManager/DataManager';
+//import DataManager, { initDataManager } from './DataManager/DataManager';
 
 function App() {
 
-  let dataManager = new DataManager();
-  initDataManager(dataManager);
+  // let dataManager = new DataManager();
+  // initDataManager(dataManager);
 
   return (
     <div className='App container-fluid'>
@@ -18,7 +18,8 @@ function App() {
       </div>
       <div className='row'>
         <div className='col-12'>
-          <MainWindow movieCollection={dataManager.movieCollection}/> 
+          <MainWindow /> 
+          {/* <MainWindow dataManager={dataManager} movieCollection={dataManager.movieCollection}/>  */}
         </div>
       </div>
     </div>  
