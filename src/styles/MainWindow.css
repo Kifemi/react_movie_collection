@@ -1,12 +1,24 @@
+:root {
+  --main-bg-color:  #1a44c4;
+  --secondary-bg-color:  #4484eb;
+	--mainArea-bg-color: #6cb5f5;
+	--dataSecondary-bg-color: aliceblue;
+}
+
 .MainWindow {
 	font-size: larger;
 	text-align: center;
-	background-color: #6cb5f5;
+	background-color: var(--mainArea-bg-color);
 }
 
 .movieBox {
-	border: solid #1a44c4;
+	border: solid var(--main-bg-color);
 	border-width: 5px;
 	border-radius: 25px;
-	margin: 2px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+.routerLink:hover {
+	background-color: aqua;
 }
