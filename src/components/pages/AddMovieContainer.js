@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class AddStampContainer extends Component {
+export class AddMovieContainer extends Component {
   render() {
     return (
       <div>
-        Add Stamp.
+        Add movie
       </div>
     )
   }
 }
 
-export default AddStampContainer
+export default AddMovieContainer

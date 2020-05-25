@@ -20,5 +20,5 @@
 }
 
 .routerLink:hover {
-	background-color: aqua;
+	background-color: var(--dataSecondary-bg-color);
 }
