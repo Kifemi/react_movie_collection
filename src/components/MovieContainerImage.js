@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 import '../styles/Image.css';
 
@@ -13,10 +13,7 @@ export class MovieContainerImage extends Component {
 	}
 }
 
-// PropTypes
-MovieContainerImage.propTypes = {
-	imageUrl: PropTypes.object.isRequired
-}
+
 
 export default MovieContainerImage
 

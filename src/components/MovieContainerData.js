@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import '../styles/MovieData.css';
 import Movie from '../classes/Movie';
 
@@ -39,12 +39,7 @@ export class MovieContainerData extends Component {
 	}
 }
 
-// PropTypes
-MovieContainerData.propTypes = {
-	name: PropTypes.object.isRequired,
-	year: PropTypes.object.isRequired,
-	owned: PropTypes.bool.isRequired,
-}
+
 
 export default MovieContainerData
 

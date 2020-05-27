@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieContainerData from './MovieContainerData';
 import MovieContainerImage from './MovieContainerImage';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import '../styles/MovieContainer.css';
 
 export class MovieContainer extends Component {
@@ -42,9 +42,6 @@ export class MovieContainer extends Component {
 	}
 }
 
-// PropTypes
-MovieContainer.propTypes = {
-	movie: PropTypes.object.isRequired
-}
+
 
 export default MovieContainer

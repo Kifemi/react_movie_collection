@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import DataManager, { initDataManager } from '../DataManager/DataManager';
+import DataManager, { initDataManager, addMovieToCollection} from '../DataManager/DataManager';
 import MovieContainer from './MovieContainer';
 import AboutContainer from '../components/pages/AboutContainer';
 import SummaryContainer from '../components/pages/SummaryContainer';
 import AddMovieContainer from '../components/pages/AddMovieContainer';
 //import EditMovieForm from '../components/EditMovieForm';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import '../styles/MainWindow.css';
+//import Movie from '../classes/Movie';
 
 
 export class MainWindow extends Component {
@@ -24,7 +25,17 @@ export class MainWindow extends Component {
 		};
 	}
 
-	AddMovieToCollection = () => (null);
+	AddMovieToCollection = (movie) => {
+		//this.CheckImage()
+		addMovieToCollection(this.state.dataManager, movie)
+		this.UpdateCollection()
+		console.log((this.state.dataManager.movieCollection.length))
+	}
+
+	
+
+	
+
 	UpdateCollection = () => {
 		this.setState({movieCollection: this.state.dataManager.movieCollection})
 	}
@@ -67,7 +78,7 @@ export class MainWindow extends Component {
 						)}>
 					</Route>
 					<Route path='/addmovie'>
-						<AddMovieContainer dataManager={this.state.dataManager}/>
+						<AddMovieContainer dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/>
 					</Route>
 					<Route path='/about' component={AboutContainer} />
 					<Route path='/summary' component={SummaryContainer} />

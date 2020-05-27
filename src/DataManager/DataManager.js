@@ -13,3 +13,7 @@ export function initDataManager(dataManager) {
 	dataManager.movieCollection.push(new Movie("Schindler's List", 10, 1993, "Steven Spielberg", true, "https://upload.wikimedia.org/wikipedia/fi/3/38/Schindler%27s_List_movie.jpg"));
 	
 }
+
+export function addMovieToCollection(dataManager, movie){
+	dataManager.movieCollection.push(movie)
+}
