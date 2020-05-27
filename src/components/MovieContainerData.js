@@ -27,7 +27,7 @@ export class MovieContainerData extends Component {
 				<p className='dataTitle'>Movie title:</p>
 				<p className='dataName'>{movie.name}</p>
 				<p className='dataTitle'>Movie price:</p>
-				<p className='dataName'>{movie.getPriceString()}</p>
+				<p className='dataName'>{movie.getPriceString()} €</p>
 				<p className='dataTitle'>Release date:</p>
 				<p className='dataName'>{movie.yearPublished}</p>
 				<p className='dataTitle'>Director:</p>

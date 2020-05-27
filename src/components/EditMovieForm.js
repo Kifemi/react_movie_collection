@@ -17,6 +17,7 @@ export class EditMovieForm extends Component {
 
     if(movie != null) {
       this.state = {
+        movieId: movie.id,
         movieName: movie.name,
         moviePrice: movie.price,
         movieYearPublished: movie.yearPublished,
@@ -26,6 +27,7 @@ export class EditMovieForm extends Component {
       };
     } else {
       this.state = {
+        movieId: '',
         movieName: '',
         moviePrice: 0,
         movieYearPublished: 0,
@@ -81,6 +83,7 @@ export class EditMovieForm extends Component {
   }
 
   CheckImage = (imageUrl) => {
+    console.log("Checking Image")
 		var image = new Image()
 		image.src = imageUrl;
 		image.onload = () => {
@@ -93,12 +96,15 @@ export class EditMovieForm extends Component {
 
   CheckMovieData = () => {
     //var imageIsValid = this.CheckImage(movie.imageUrl)
+    console.log("Checking Data")
+    var id = this.state.movieId
     var name = this.state.movieName
     var price = this.state.moviePrice
     var yearPublished = this.state.movieYearPublished
     var director = this.state.movieDirector
     var owned = this.state.movieOwned
     var imageUrl = this.state.movieImageUrl
+    if(!id) {id=null}
     if(!name) 
     {
       alert('Please, give movie title')  
@@ -109,7 +115,7 @@ export class EditMovieForm extends Component {
 		if(!owned) {owned = false}
     if(!yearPublished) {yearPublished = 0}
     
-    let newMovie = new Movie(name, price, yearPublished, director, owned, imageUrl)
+    let newMovie = new Movie(id, name, price, yearPublished, director, owned, imageUrl)
 		this.props.AddMovieToCollection(newMovie)
   }
   

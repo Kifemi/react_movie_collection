@@ -1,12 +1,11 @@
 export default class Movie
 {
 	getPriceString() {
-		//var price = parseFloat(this.price);
-		var editedPrice = this.price.toFixed(2);
-		return editedPrice;
+		return parseFloat(this.price).toFixed(2)
 	}
 
-	constructor(name, price, yearPublished, director, owned, imageUrl) {
+	constructor(id, name, price, yearPublished, director, owned, imageUrl) {
+		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.yearPublished = yearPublished;
@@ -15,9 +14,3 @@ export default class Movie
 		this.imageUrl = imageUrl;
 	}
 }
-
-// export function getPriceString() {
-// 	var price = parseFloat(this.price);
-// 	var editedPrice = price.toFixed(2);
-// 	return editedPrice;
-// }

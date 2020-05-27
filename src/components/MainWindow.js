@@ -9,6 +9,7 @@ import AddMovieContainer from '../components/pages/AddMovieContainer';
 //import EditMovieForm from '../components/EditMovieForm';
 //import PropTypes from 'prop-types';
 import '../styles/MainWindow.css';
+import MovieListContainer from './pages/MovieListContainer';
 //import Movie from '../classes/Movie';
 
 
@@ -26,7 +27,7 @@ export class MainWindow extends Component {
 	}
 
 	AddMovieToCollection = (movie) => {
-		//this.CheckImage()
+		console.log("Adding movie to Collection")
 		addMovieToCollection(this.state.dataManager, movie)
 		this.UpdateCollection()
 		console.log((this.state.dataManager.movieCollection.length))
@@ -43,7 +44,6 @@ export class MainWindow extends Component {
 	
 	render() {
 		return (
-			//<div className='container-fluid'>
 			<Router>
 				<div className='MainWindow'>
 					<div className='row'> 
@@ -56,25 +56,8 @@ export class MainWindow extends Component {
 					</div>
 					<Route exact path='/' render={ props => (
 						<React.Fragment>
-								<div className='row'>
-									<div className='col-2'/>
-									<div className='col-4 movieBox'>
-										<MovieContainer movie={this.state.movieCollection[0]}/>	
-									</div>
-								</div>
-								<div className='row'>
-									<div className='col-2'/>
-									<div className='col-4 movieBox'>
-										<MovieContainer movie={this.state.movieCollection[1]}/>	
-									</div>
-								</div>
-								<div className='row'>
-									<div className='col-2'/>
-									<div className='col-4 movieBox'>
-										<MovieContainer movie={this.state.movieCollection[2]}/>	
-									</div>
-								</div>
-							</React.Fragment>
+							<MovieListContainer movieList={this.state.movieCollection}/>
+						</React.Fragment>
 						)}>
 					</Route>
 					<Route path='/addmovie'>
