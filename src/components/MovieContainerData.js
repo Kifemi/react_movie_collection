@@ -4,24 +4,19 @@ import '../styles/MovieData.css';
 import Movie from '../classes/Movie';
 
 export class MovieContainerData extends Component {
-	
-
-	
+	IsInCollection = (owned) => {
+		console.log(owned)
+		if(owned) {
+			return "Yes";
+		} else{
+			return "No";
+		}
+	}
 
 	render() {
-		//let {name, price, yearPublished, director, owned} = this.props.movieData;
-		//var movie = new Movie(name,price,yearPublished,director,owned,this.props.movieData.imageUrl);
 		var movie = new Movie();
 		Object.assign(movie, this.props.movieData)
-
-		var IsInCollection = (owned) => {
-			if(owned) {
-				return "Yes";
-			} else{
-				return "No";
-			}
-		}
-
+		console.log("data")
 		return (
 			<div className=''>
 				<p className='dataTitle'>Movie title:</p>
@@ -33,7 +28,7 @@ export class MovieContainerData extends Component {
 				<p className='dataTitle'>Director:</p>
 				<p className='dataName'>{movie.director}</p>
 				<p className='dataTitle'>Is in the collection:</p>
-				<p className='dataName'>{IsInCollection(movie.owned)}</p>
+				<p className='dataName'>{this.IsInCollection(movie.owned)}</p>
 			</div>
 		)
 	}

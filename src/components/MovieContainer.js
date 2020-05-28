@@ -19,11 +19,12 @@ export class MovieContainer extends Component {
 
 	headerClicked = () => {
 		this.setState({showFull: !this.state.showFull})
+		console.log("header")
 	}
 
 	render() {
 		let {imageUrl} = this.props.movie;
-
+		console.log("MOVIECONTAINER")
 		return (
 			<div className='' onClick={this.headerClicked}>
 				{this.state.showFull ? 
@@ -45,7 +46,7 @@ export class MovieContainer extends Component {
 						</div>
 						<div className='row justify-content-end'>
 							<div>
-								<NavLink to={{pathname:'addmovie', movie:this.props.movie, movieKey:this.props.movie.id}}>
+								<NavLink to={{pathname:'/react_movie_collection/addmovie', movie:this.props.movie, movieKey:this.props.movie.id}}>
 									<button className='button'>
 										Edit
 									</button>

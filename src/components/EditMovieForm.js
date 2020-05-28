@@ -99,7 +99,6 @@ export class EditMovieForm extends Component {
     var director = this.state.movieDirector
     var owned = this.state.movieOwned
     var imageUrl = this.state.movieImageUrl
-    console.log(name)
     if(!id) {id=null}
     if(!name) 
     {
