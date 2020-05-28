@@ -160,7 +160,7 @@ export class EditMovieForm extends Component {
                 onChange={this.handdleUrlChange}/></div>
           </div>
           <div>
-            <button className='button' type='submit'>Submit</button>
+            <button className='button' type='submit'>Save</button>
           </div>
         </form>
       </div>

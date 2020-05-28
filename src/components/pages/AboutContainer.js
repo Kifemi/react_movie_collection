@@ -4,7 +4,7 @@ export class AboutContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        <p>About</p>
+        <p>This page is currently empty. Work in progress.</p>
       </React.Fragment>
     )
   }

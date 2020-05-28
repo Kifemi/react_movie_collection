@@ -37,6 +37,10 @@ export class MainWindow extends Component {
 			return <AddMovieContainer movieKey={props.location.movieKey} dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/>
 		}
 
+		var summaryContainer = (props) => {
+			return <SummaryContainer movieCollection={this.state.movieCollection} />
+		}
+
 		return (
 			<Router>
 				<div className='MainWindow'>
@@ -58,7 +62,7 @@ export class MainWindow extends Component {
 						{/* <AddMovieContainer dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/> */}
 					</Route>
 					<Route path='/about' component={AboutContainer} />
-					<Route path='/summary' component={SummaryContainer} />
+					<Route path='/summary' component={summaryContainer} />
 					</Switch>
 				</div>
 			</Router>
