@@ -5,7 +5,7 @@ export class AddMovieContainer extends Component {
   render() {
     return (
       <div>
-        <EditMovieForm dataManager={this.props.dataManager} AddMovieToCollection={this.props.AddMovieToCollection}/>
+        <EditMovieForm movieKey={this.props.movieKey} dataManager={this.props.dataManager} AddMovieToCollection={this.props.AddMovieToCollection}/>
       </div>
     )
   }

@@ -9,7 +9,7 @@ export class MovieListContainer extends Component {
       <div className='row'>
         <div className='col-2'/>
         <div className='col-4 movieBox'>
-          <MovieContainer movie={element} key={element.id}/>
+          <MovieContainer movie={element} movieKey={element.id}/>
         </div>
       </div>
     )

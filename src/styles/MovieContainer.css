@@ -10,10 +10,30 @@
   background-color: #2c4fb8;
 }
 
+.movieHeader:hover {
+  background-color: var(--secondary-bg-color);
+}
+
 .movieImage{
   margin-bottom: 0px;
 }
 
 .movieData{
   margin-bottom: 10px;
+}
+
+.button{
+  color: var(--dataSecondary-bg-color);
+  text-align: center;
+  background-color: var(--main-bg-color);
+  margin: 8px;
+  border-color: var(--dataSecondary-bg-color);
+  border-radius: 20px;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.button:hover {
+  background-color: var(--secondary-bg-color);
 }

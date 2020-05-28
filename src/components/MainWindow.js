@@ -1,70 +1,65 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
-import DataManager, { initDataManager, addMovieToCollection} from '../DataManager/DataManager';
-import MovieContainer from './MovieContainer';
+//import DataManager, { initDataManager, addMovieToCollection} from '../DataManager/DataManager';
+//import MovieContainer from './MovieContainer';
 import AboutContainer from '../components/pages/AboutContainer';
 import SummaryContainer from '../components/pages/SummaryContainer';
 import AddMovieContainer from '../components/pages/AddMovieContainer';
-//import EditMovieForm from '../components/EditMovieForm';
-//import PropTypes from 'prop-types';
 import '../styles/MainWindow.css';
 import MovieListContainer from './pages/MovieListContainer';
-//import Movie from '../classes/Movie';
 
 
 export class MainWindow extends Component {
 	constructor(props) {
 		super(props)
 	
-		let dataManager = new DataManager();
-		initDataManager(dataManager);
+		// let dataManager = new DataManager();
+		// initDataManager(dataManager);
 	
 		this.state = {
-			 dataManager: dataManager,
-			 movieCollection: dataManager.movieCollection,
+			 dataManager: this.props.dataManager,
+			 movieCollection: this.props.dataManager.movieCollection,
 		};
 	}
 
 	AddMovieToCollection = (movie) => {
-		console.log("Adding movie to Collection")
-		addMovieToCollection(this.state.dataManager, movie)
+		this.state.dataManager.addMovieToCollection(movie)
 		this.UpdateCollection()
-		console.log((this.state.dataManager.movieCollection.length))
 	}
-
-	
-
-	
 
 	UpdateCollection = () => {
 		this.setState({movieCollection: this.state.dataManager.movieCollection})
 	}
-
 	
 	render() {
+		var addMovie = (props) => {
+			return <AddMovieContainer movieKey={props.location.movieKey} dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/>
+		}
+
 		return (
 			<Router>
 				<div className='MainWindow'>
 					<div className='row'> 
-						<div className='col-12'>
-							<Link className='routerLink' to='/'>Home</Link> | <Link
-							className='routerLink' to='/addmovie'>Add Movie</Link> | <Link
-							className='routerLink' to='/about'>About</Link> | <Link
-							className='routerLink' to='/summary'>Summary</Link>
+						<div className='col-12 links'>
+							<NavLink className='routerLink' to='/react_movie_collection'>Home</NavLink> | <NavLink
+							className='routerLink' to='/addmovie'>Add Movie</NavLink> | <NavLink
+							className='routerLink' to='/summary'>Summary</NavLink> | <NavLink
+							className='routerLink' to='/about'>About</NavLink>
 						</div>
 					</div>
-					<Route exact path='/' render={ props => (
-						<React.Fragment>
-							<MovieListContainer movieList={this.state.movieCollection}/>
-						</React.Fragment>
+					<Switch>
+					<Route exact path='/react_movie_collection' render={ () => (
+						<MovieListContainer movieList={this.state.movieCollection}/>
 						)}>
 					</Route>
-					<Route path='/addmovie'>
-						<AddMovieContainer dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/>
+					<Route path='/addmovie' component={addMovie}>
+						{/* <AddMovieContainer movie={props.location.movie} AddMovieToCollection={this.AddMovieToCollection}/> */}
+						{/* <AddMovieContainer dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/> */}
 					</Route>
 					<Route path='/about' component={AboutContainer} />
 					<Route path='/summary' component={SummaryContainer} />
+					</Switch>
 				</div>
 			</Router>
 		)

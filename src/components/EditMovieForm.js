@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-//import { AddMovieToCollection } from './MainWindow';
 import Movie from '../classes/Movie';
 import MovieContainerImage from './MovieContainerImage';
 import '../styles/MainWindow.css';
-//import DataManager, { initDataManager } from '../DataManager/DataManager';
+import '../styles/MovieContainer.css';
 
 export class EditMovieForm extends Component {
   
@@ -12,14 +11,14 @@ export class EditMovieForm extends Component {
   constructor(props) {
     super(props)
 
-    //let movie = this.props.dataManager.movieCollection[0];
-    let movie = null;
+    var index = this.props.dataManager.movieCollection.findIndex(element => element.id === this.props.movieKey)
+    var movie = this.props.dataManager.movieCollection[index]
 
     if(movie != null) {
       this.state = {
         movieId: movie.id,
         movieName: movie.name,
-        moviePrice: movie.price,
+        moviePrice: parseFloat(movie.price).toFixed(2),
         movieYearPublished: movie.yearPublished,
         movieDirector: movie.director,
         movieOwned: movie.owned,
@@ -78,12 +77,10 @@ export class EditMovieForm extends Component {
     event.preventDefault()
     event.stopPropagation()
     
-    //this.props.AddMovieToCollection(newMovie)
     this.CheckImage(this.state.movieImageUrl)
   }
 
   CheckImage = (imageUrl) => {
-    console.log("Checking Image")
 		var image = new Image()
 		image.src = imageUrl;
 		image.onload = () => {
@@ -95,8 +92,6 @@ export class EditMovieForm extends Component {
 	}
 
   CheckMovieData = () => {
-    //var imageIsValid = this.CheckImage(movie.imageUrl)
-    console.log("Checking Data")
     var id = this.state.movieId
     var name = this.state.movieName
     var price = this.state.moviePrice
@@ -104,6 +99,7 @@ export class EditMovieForm extends Component {
     var director = this.state.movieDirector
     var owned = this.state.movieOwned
     var imageUrl = this.state.movieImageUrl
+    console.log(name)
     if(!id) {id=null}
     if(!name) 
     {
@@ -112,57 +108,62 @@ export class EditMovieForm extends Component {
     }
 		if(!price) {price = 0.0}
 		if(!director) {director = "Movie has no director"}
-		if(!owned) {owned = false}
+    if(owned === null) {owned = false}
     if(!yearPublished) {yearPublished = 0}
     
     let newMovie = new Movie(id, name, price, yearPublished, director, owned, imageUrl)
-		this.props.AddMovieToCollection(newMovie)
+    this.props.AddMovieToCollection(newMovie)
   }
   
   render() {
     return (
       <div className='container'>
-        <div className='row'>
-          <div className='col-12'>
+        <div className='row justify-content-center'>
+          <div className='col-4 center'>
             <MovieContainerImage imageUrl={this.state.movieImageUrl}/>
           </div>
         </div>
-        <div className='row'>
-          <div className='col-6'>
-            <p className='addMovieTexts'><label>Name</label></p>
-            <p className='addMovieTexts'><label>Price</label></p>
-            <p className='addMovieTexts'><label>Release year</label></p>
-            <p className='addMovieTexts'><label>Director</label></p>
-            <p className='addMovieTexts'><label>Is in the collection?</label></p>
-            <p className='addMovieTexts'><label>Image Url</label></p>
+        <form onSubmit={this.handleSubmit}>
+          <div className='row'>
+            <div className='col addMovieTexts'><label>Name</label></div>
+            <div className='col addMovieTexts'><input type='text' value={this.state.movieName} 
+              onChange={this.handdleNameChange} /></div>
           </div>
-          <div className='col-6'>
-            <form onSubmit={this.handleSubmit}>
-              <div>
-                <p className='addMovieTexts'><input type='text' value={this.state.movieName} 
-                  onChange={this.handdleNameChange} /></p>
-                <p className='addMovieTexts'><input type='decimal' value={this.state.moviePrice} 
-                  onChange={this.handdlePriceChange}/></p>
-                <p className='addMovieTexts'><input type='text' value={this.state.movieYearPublished} 
-                  onChange={this.handdleYearChange}/></p>
-                <p className='addMovieTexts'><input type='text' value={this.state.movieDirector} 
-                  onChange={this.handdleDirectorChange}/></p>
-                <p className='addMovieTexts'>
-                  <select type='text' value={this.state.movieOwned} 
-                          onChange={this.handdleOwnedChange}>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'>No</option>
-                  </select>
-                </p>
-                <p className='addMovieTexts'><input type='text' value={this.state.movieImageUrl} 
-                  onChange={this.handdleUrlChange}/></p>
-                <p><button type='submit'>Submit</button></p>
-              </div>
-            </form>
+          <div className='row'>
+            <div className='col addMovieTexts'><label>Price</label></div>
+            <div className='col addMovieTexts'><input type='decimal' value={this.state.moviePrice} 
+              onChange={this.handdlePriceChange}/></div>
           </div>
-        </div>
+          <div className='row'>
+            <div className='col addMovieTexts'><label>Release year</label></div>
+            <div className='col addMovieTexts'><input type='text' value={this.state.movieYearPublished} 
+                onChange={this.handdleYearChange}/></div>
+          </div>
+          <div className='row'>
+            <div className='col addMovieTexts'><label>Director</label></div>
+            <div className='col addMovieTexts'><input type='text' value={this.state.movieDirector} 
+                onChange={this.handdleDirectorChange}/></div>
+          </div>
+          <div className='row'>
+            <div className='col addMovieTexts'><label>Is in the collection?</label></div>
+            <div className='col addMovieTexts'>
+              <select value={this.state.movieOwned} 
+                      onChange={this.handdleOwnedChange}>
+                <option value='true'>Yes</option>
+                <option value='false'>No</option>
+              </select>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col addMovieTexts'><label>Image Url</label></div>
+            <div className='col addMovieTexts'><input type='text' value={this.state.movieImageUrl} 
+                onChange={this.handdleUrlChange}/></div>
+          </div>
+          <div>
+            <button className='button' type='submit'>Submit</button>
+          </div>
+        </form>
       </div>
-      
     )
   }
 }

@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
+
+import { NavLink } from 'react-router-dom';
 import MovieContainerData from './MovieContainerData';
 import MovieContainerImage from './MovieContainerImage';
-//import PropTypes from 'prop-types';
 import '../styles/MovieContainer.css';
 
 export class MovieContainer extends Component {
-	state = {
-		showFull: true
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			showFull: true,
+			movie: this.props.movie,
+			movieKey: this.props.movieKey,
+		};
 	}
+	
 
 	headerClicked = () => {
 		this.setState({showFull: !this.state.showFull})
 	}
 
 	render() {
-		//let {name, price, yearPublished, director, owned, imageUrl} = this.props.movie;
 		let {imageUrl} = this.props.movie;
 
 		return (
@@ -32,11 +39,19 @@ export class MovieContainer extends Component {
 								<MovieContainerImage imageUrl={imageUrl} />
 							</div>
 							<div className='col-7 movieData'>
-								{/* <MovieContainerData name={name} price={price} year={yearPublished} director={director} owned={owned} /> */}
 								<MovieContainerData movieData={this.props.movie} />
 							</div>
 							<div className='col-1 ' />
 						</div>
+						<div className='row justify-content-end'>
+							<div>
+								<NavLink to={{pathname:'addmovie', movie:this.props.movie, movieKey:this.props.movie.id}}>
+									<button className='button'>
+										Edit
+									</button>
+								</NavLink>
+							</div>
+						</div>	
 					</div>
 				:
 				<div>
