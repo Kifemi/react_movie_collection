@@ -148,8 +148,8 @@ export class EditMovieForm extends Component {
             <div className='col addMovieTexts'>
               <select value={this.state.movieOwned} 
                       onChange={this.handdleOwnedChange}>
-                <option value='true'>Yes</option>
-                <option value='false'>No</option>
+                <option value='1'>Yes</option>
+                <option value='0'>No</option>
               </select>
             </div>
           </div>

@@ -28,22 +28,16 @@ export class MainWindow extends Component {
 	}
 	
 	render() {
-		var test = (str) => {
-			console.log(str)
-		}
 
 		var movieList = (props) => {
-			console.log("home")
 			return <MovieListContainer movieList={this.state.movieCollection}/>
 		}
 
 		var addMovie = (props) => {
-			console.log("addmovie")
 			return <AddMovieContainer movieKey={props.location.movieKey} dataManager={this.state.dataManager} AddMovieToCollection={this.AddMovieToCollection}/>
 		}
 
 		var summaryContainer = (props) => {
-			console.log("summary")
 			return <SummaryContainer movieCollection={this.state.movieCollection} />
 		}
 		

@@ -15,16 +15,13 @@ export class MovieContainer extends Component {
 			movieKey: this.props.movieKey,
 		};
 	}
-	
 
 	headerClicked = () => {
 		this.setState({showFull: !this.state.showFull})
-		console.log("header")
 	}
 
 	render() {
 		let {imageUrl} = this.props.movie;
-		console.log("MOVIECONTAINER")
 		return (
 			<div className='' onClick={this.headerClicked}>
 				{this.state.showFull ? 
@@ -63,7 +60,7 @@ export class MovieContainer extends Component {
 					</div>
 				</div>
 				}
-			</div>	
+			</div>
 		)
 	}
 }

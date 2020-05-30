@@ -5,8 +5,7 @@ import Movie from '../classes/Movie';
 
 export class MovieContainerData extends Component {
 	IsInCollection = (owned) => {
-		console.log(owned)
-		if(owned) {
+		if(owned == 1) {
 			return "Yes";
 		} else{
 			return "No";
@@ -16,7 +15,6 @@ export class MovieContainerData extends Component {
 	render() {
 		var movie = new Movie();
 		Object.assign(movie, this.props.movieData)
-		console.log("data")
 		return (
 			<div className=''>
 				<p className='dataTitle'>Movie title:</p>

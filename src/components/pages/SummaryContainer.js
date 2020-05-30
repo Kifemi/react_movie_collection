@@ -4,7 +4,7 @@ import '../../styles/Summary.css';
 
 export class SummaryContainer extends Component {
   IsInCollection = (owned) => {
-    if(owned) {
+    if(owned == 1) {
       return "Yes";
     } else{
       return "No";
