@@ -10,12 +10,12 @@ function App() {
   return (
     <div className='App container-fluid'>
       <div className='row'>
-        <div className='col-12'>
+        <div className='col'>
           <Header />
         </div>
       </div>
       <div className='row'>
-        <div className='col-12'>
+        <div className='col'>
           <MainWindow dataManager={DataManager}/> 
         </div>
       </div>

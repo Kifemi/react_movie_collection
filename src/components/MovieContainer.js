@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import MovieContainerData from './MovieContainerData';
 import MovieContainerImage from './MovieContainerImage';
 import '../styles/MovieContainer.css';
+import '../styles/Image.css';
 
 export class MovieContainer extends Component {
 	constructor(props) {
@@ -33,8 +34,8 @@ export class MovieContainer extends Component {
 						</div>
 						<div className='row'>
 							<div className='col-1' />
-							<div className='col-3 movieImage'>
-								<MovieContainerImage imageUrl={imageUrl} />
+							<div className='col-3'>
+								<MovieContainerImage imageUrl={imageUrl} imageStyle={"imageCover"} />
 							</div>
 							<div className='col-7 movieData'>
 								<MovieContainerData movieData={this.props.movie} />

@@ -43,7 +43,7 @@ export class MainWindow extends Component {
 		
 		return (
 			<Router>
-				<div className='MainWindow'>
+				<div className='MainWindow container-fluid'>
 					<div className='row'> 
 						<div className='col-12 links'>
 							<NavLink className='routerLink' to='/react_movie_collection'>Movie List</NavLink> | <NavLink

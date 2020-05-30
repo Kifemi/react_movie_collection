@@ -7,7 +7,7 @@ export class MovieContainerImage extends Component {
 	render() {
 		return (
 			<div className=''>
-				<img src={this.props.imageUrl} alt='' className='responsive'/>
+				<img src={this.props.imageUrl} alt='' className={this.props.imageStyle}/>
 			</div>
 		)
 	}

@@ -44,9 +44,9 @@ export class EditMovieForm extends Component {
   }
 
   handdlePriceChange = event => {
-    this.setState({
-      moviePrice: event.target.value
-    })
+      this.setState({
+        moviePrice: event.target.value
+      })
   }
 
   handdleYearChange = event => {
@@ -87,7 +87,7 @@ export class EditMovieForm extends Component {
 			this.CheckMovieData()
 		} 
 		image.onerror = () => {
-			alert('Image not valid')
+			alert('Please, give image Url')
 		}
 	}
 
@@ -100,15 +100,26 @@ export class EditMovieForm extends Component {
     var owned = this.state.movieOwned
     var imageUrl = this.state.movieImageUrl
     if(!id) {id=null}
-    if(!name) 
-    {
+    if(!name) {
       alert('Please, give movie title')  
       return;
     }
-		if(!price) {price = 0.0}
-		if(!director) {director = "Movie has no director"}
-    if(owned === null) {owned = false}
-    if(!yearPublished) {yearPublished = 0}
+    if(isNaN(price)) {
+      alert('Price is not valid')
+      return;
+    } 
+    else if (!price) {
+      price = 0.0
+    }
+		if(!director) {
+      director = "No director information added"
+    }
+    if(owned === null) {
+      owned = false
+    }
+    if(!yearPublished) {
+      yearPublished = 0
+    }
     
     let newMovie = new Movie(id, name, price, yearPublished, director, owned, imageUrl)
     this.props.AddMovieToCollection(newMovie)
@@ -118,8 +129,8 @@ export class EditMovieForm extends Component {
     return (
       <div className='container'>
         <div className='row justify-content-center'>
-          <div className='col-4 center'>
-            <MovieContainerImage imageUrl={this.state.movieImageUrl}/>
+          <div className='col center'>
+            <MovieContainerImage imageUrl={this.state.movieImageUrl} imageStyle={"imageFit"}/>
           </div>
         </div>
         <form onSubmit={this.handleSubmit}>
