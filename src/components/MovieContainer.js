@@ -44,7 +44,7 @@ export class MovieContainer extends Component {
 						</div>
 						<div className='row justify-content-end'>
 							<div>
-								<NavLink to={{pathname:'/react_movie_collection/addmovie', movie:this.props.movie, movieKey:this.props.movie.id}}>
+								<NavLink to={{pathname:'/react_movie_collection/addmovie', movie:this.props.movie, movieKey:this.props.movie.id, key:this.props.movie.id}}>
 									<button className='button'>
 										Edit
 									</button>
